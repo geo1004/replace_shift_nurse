@@ -4,4 +4,9 @@
 #= require moment
 #= require fullcalendar
 #= require turbolinks
+#= require underscore
+#= require backbone
+#= require backbone_rails_sync
+#= require backbone_datalink
+#= require backbone/infirmiere
 #= require_tree .
