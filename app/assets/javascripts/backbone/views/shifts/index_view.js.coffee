@@ -2,21 +2,23 @@ Infirmiere.Views.Shifts ||= {}
 
 class Infirmiere.Views.Shifts.IndexView extends Backbone.View
   initialize: () ->
-    @options.availabilities.bind('reset', @addAll)
-    @options.seekings.bind('reset', @addAll)
+    @options.elements.bind('reset', @addAll)
 
   addAll: () =>
-    if @options.availabilities.length > 0
+    if @options.elements.length > 0
       $(@el).fullCalendar(
         'addEventSource',
-        formatShiftsJson(@options.availabilities, '#6AA079')
+        formatShiftsJson(@options.elements, '#6AA079')
       )
 
-    if @options.seekings.length > 0
-      $(@el).fullCalendar(
-        'addEventSource',
-        formatShiftsJson(@options.seekings, '#EA7481')
-      )
+
+  updateEvent: (new_elements) =>
+    $(@el).fullCalendar('removeEvents')
+    $(@el).fullCalendar(
+      'addEventSource',
+      formatShiftsJson(new_elements, '#6AA079')
+    )
+    $(@el).fullCalendar('rerenderEvents')
 
   render: =>
     $(@el).fullCalendar({
@@ -31,3 +33,4 @@ class Infirmiere.Views.Shifts.IndexView extends Backbone.View
       selectable: true
     })
     @addAll()
+    @

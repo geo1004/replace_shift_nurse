@@ -1,0 +1,10 @@
+- if user_signed_in?
+
+  = drop_down fa_icon :user do
+    = menu_item "My profile", user_path(current_user)
+    = drop_down_divider
+    = menu_item "Logout", destroy_user_session_path, method: :delete
+
+- else
+
+  %li= link_to "Log in", new_user_session_path

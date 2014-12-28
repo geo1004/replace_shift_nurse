@@ -1,31 +1,25 @@
 class Infirmiere.Routers.ShiftsRouter extends Backbone.Router
   initialize: (options) ->
-    @shifts = new Infirmiere.Collections.ShiftsCollection()
-    @shifts.reset options.shifts
+    @availabilities = new Infirmiere.Collections.AvailabilitiesCollection()
+    @seekings = new Infirmiere.Collections.SeekingsCollection()
+    @availabilities.fetch()
+    @seekings.fetch()
 
   routes:
-    "new"      : "newShift"
-    "index"    : "index"
-    ":id/edit" : "edit"
-    ":id"      : "show"
-    ".*"        : "index"
+    "availabilities" : "availabilities"
+    "seekings" : "seekings"
+    ".*"        : "seekings"
 
-  newShift: ->
-    @view = new Infirmiere.Views.Shifts.NewView(collection: @shifts)
-    $("#shifts").html(@view.render().el)
+  availabilities: ->
+    @view = new Infirmiere.Views.Shifts.IndexView(
+      el: $("#calendar")
+      elements: @availabilities
+    )
+    @view.updateEvent(@availabilities)
 
-  index: ->
-    @view = new Infirmiere.Views.Shifts.IndexView(shifts: @shifts)
-    $("#shifts").html(@view.render().el)
-
-  show: (id) ->
-    shift = @shifts.get(id)
-
-    @view = new Infirmiere.Views.Shifts.ShowView(model: shift)
-    $("#shifts").html(@view.render().el)
-
-  edit: (id) ->
-    shift = @shifts.get(id)
-
-    @view = new Infirmiere.Views.Shifts.EditView(model: shift)
-    $("#shifts").html(@view.render().el)
+  seekings: ->
+    @view = new Infirmiere.Views.Shifts.IndexView(
+      el: $("#calendar")
+      elements: @seekings
+    )
+    @view.updateEvent(@seekings)

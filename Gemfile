@@ -36,10 +36,14 @@ gem 'devise', git: 'git@github.com:plataformatec/devise.git',
               branch: 'lm-rails-4-2'
 gem 'devise-i18n'
 
+gem 'font-awesome-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
+gem 'compass-rails'
+
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+
 gem 'rails-backbone'
 
 group :development, :test do
