@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+ruby '2.1.3'
+#ruby-gemset=default
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.rc2'
@@ -31,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'rails-i18n'
 gem 'devise', git: 'git@github.com:plataformatec/devise.git',
               branch: 'lm-rails-4-2'
 gem 'devise-i18n'
@@ -56,4 +57,9 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'pry'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'database_cleaner'
+  gem 'rubocop'
+  gem 'faker'
 end

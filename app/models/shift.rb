@@ -4,7 +4,7 @@ class Shift < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :availables, -> { where(slot_type: AVAILABILITY) }
+  scope :availabilities, -> { where(slot_type: AVAILABILITY) }
   scope :seekings, -> { where(slot_type: SEEKING) }
   scope :exclude_user, ->(user) { where.not(user: user) }
 
