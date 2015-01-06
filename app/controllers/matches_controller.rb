@@ -1,9 +1,14 @@
 class MatchesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @full_matches = current_user.full_matches || []
-    @partial_matches = current_user.partial_matches - @full_matches
+  def availabilities
+    @full_matches = current_user.full_matches(type: 'availabilities') || []
+    @partial_matches = current_user.partial_matches(type: 'availabilities') - @full_matches
+  end
+
+  def seekings
+    @full_matches = current_user.full_matches(type: 'seekings') || []
+    @partial_matches = current_user.partial_matches(type: 'seekings') - @full_matches
   end
 
   def show

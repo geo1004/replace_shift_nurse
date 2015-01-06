@@ -1,0 +1,35 @@
+%h1 Édition du profil
+= form_for @user do |f|
+  .form-group
+    = f.label :firstname
+    = f.text_field :firstname, class: 'form-control'
+  .form-group
+    = f.label :lastname
+    = f.text_field :lastname, class: 'form-control'
+  .form-group
+    = f.label :city
+    = f.text_field :city, class: 'form-control'
+  .form-group
+    = f.label :birthday
+    #birthday.input-group.date
+      = f.text_field :birthday, class: 'form-control'
+      %span.input-group-addon
+        %span.fa.fa-calendar
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+
+  .panel.panel-default
+    .panel-heading
+      Mise à jour du mot de passe
+    .panel-body
+      .form-group
+        = f.label :password, 'Mot de passe'
+        = f.password_field :password, class: 'form-control'
+        = f.label :password_confirmation, 'Confirmation du mot de passe'
+        = f.password_field :password_confirmation, class: 'form-control'
+
+  = f.submit 'Mettre à jour', class: 'btn btn-default'

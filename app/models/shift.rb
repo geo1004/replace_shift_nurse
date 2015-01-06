@@ -8,7 +8,6 @@ class Shift < ActiveRecord::Base
   scope :seekings, -> { where(slot_type: SEEKING) }
   scope :exclude_user, ->(user) { where.not(user: user) }
 
-
   validates :slot_type,
             inclusion: { in: [AVAILABILITY, SEEKING] },
             presence: true

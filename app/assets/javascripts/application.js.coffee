@@ -2,6 +2,8 @@
 #= require jquery_ujs
 #= require twitter/bootstrap
 #= require moment
+#= require moment/fr
+#= require bootstrap-datetimepicker
 #= require fullcalendar
 #= require turbolinks
 #= require underscore

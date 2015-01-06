@@ -1,7 +1,7 @@
 - if user_signed_in?
 
   = drop_down fa_icon :user do
-    = menu_item "My profile", user_path(current_user)
+    = menu_item "My profile", edit_user_path(current_user)
     = drop_down_divider
     = menu_item "Logout", destroy_user_session_path, method: :delete
 

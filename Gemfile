@@ -44,6 +44,7 @@ gem 'compass-rails'
 
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 
 gem 'rails-backbone'
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   let(:user) { create(:user) }
 
   context 'when the current_user is looking for vacation' do
@@ -110,15 +110,15 @@ RSpec.describe User, :type => :model do
       context 'when there is NO matching' do
         let!(:seeking_shift) do
           create :shift,
-          :seek,
-          user: user_who_want_vacation,
-          start_date: DateTime.new(2014, 01, 01),
-          end_date: DateTime.new(2014, 01, 02)
+                 :seek,
+                 user: user_who_want_vacation,
+                 start_date: DateTime.new(2014, 01, 01),
+                 end_date: DateTime.new(2014, 01, 02)
         end
         let!(:availability_shift) do
           create :shift,
-          :available,
-          user: user_seeking_job
+                 :available,
+                 user: user_seeking_job
         end
 
         it 'returns [] who match' do

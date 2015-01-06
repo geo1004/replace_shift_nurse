@@ -1,0 +1,19 @@
+= form_for Shift.new(slot_type: Shift::AVAILABILITY) do |f|
+  = f.hidden_field :slot_type, value: Shift::AVAILABILITY
+  .form-group
+    .input-group
+      = f.label :start_date, 'Date de début'
+      #availability-startdate.input-group.date
+        = f.text_field :start_date, class: 'form-control'
+        %span.input-group-addon
+          %span.fa.fa-calendar
+
+  .form-group
+    .input-group
+      = f.label :end_date, 'Date de début'
+      #availability-enddate.input-group.date
+        = f.text_field :end_date, class: 'form-control'
+        %span.input-group-addon
+          %span.fa.fa-calendar'
+
+  = f.submit 'Créer', class: 'btn btn-default'

@@ -1,35 +1,35 @@
 require 'rails_helper'
 
-RSpec.describe Shift, :type => :model do
-  let(:current_user) {create(:user) }
-  let(:user) {create(:user) }
+RSpec.describe Shift, type: :model do
+  let(:current_user) { create(:user) }
+  let(:user) { create(:user) }
   let(:base_shift) do
     create :shift,
-    :available,
-    user: current_user,
-    start_date: DateTime.new(2014, 12, 1),
-    end_date: DateTime.new(2014, 12, 10)
+           :available,
+           user: current_user,
+           start_date: DateTime.new(2014, 12, 1),
+           end_date: DateTime.new(2014, 12, 10)
   end
   let(:fully_included_shift) do
     create :shift,
-    :available,
-    user: user,
-    start_date: DateTime.new(2014, 12, 1),
-    end_date: DateTime.new(2014, 12, 10)
+           :available,
+           user: user,
+           start_date: DateTime.new(2014, 12, 1),
+           end_date: DateTime.new(2014, 12, 10)
   end
   let(:partially_included_shift) do
     create :shift,
-    :available,
-    user: user,
-    start_date: DateTime.new(2014, 12, 5),
-    end_date: DateTime.new(2014, 12, 7)
+           :available,
+           user: user,
+           start_date: DateTime.new(2014, 12, 5),
+           end_date: DateTime.new(2014, 12, 7)
   end
   let(:not_included_shift) do
     create :shift,
-    :available,
-    user: user,
-    start_date: DateTime.new(2014, 12, 12),
-    end_date: DateTime.new(2014, 12, 14)
+           :available,
+           user: user,
+           start_date: DateTime.new(2014, 12, 12),
+           end_date: DateTime.new(2014, 12, 14)
   end
 
   before do

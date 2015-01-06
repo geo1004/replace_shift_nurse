@@ -1,3 +1,22 @@
-#calendar-container
+#calendar-container.well
   #calendar-type
   #calendar
+
+- content_for :sidebar do
+  .panel.panel-default.sidebar-tools
+    .panel-heading
+      = 'Ajouter un shift'
+
+    .panel-body
+      %ul.nav.nav-tabs.nav-justified
+        %li.active{role: 'presentation'}
+          %a{href: '#job'}= 'Je cherche un job'
+
+        %li{role: 'presentation'}
+          %a{href: '#replacement'}= 'Je cherche un remplacent'
+
+      .tab-content
+        .tab-pane.active#job
+          = render partial: 'shifts/seeking_form'
+        .tab-pane#replacement
+          = render partial: 'shifts/availability_form'

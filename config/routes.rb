@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'matches/index', to: 'matches#index', as: :matches
+  get 'users/show', to: 'users#show'
+
+  get 'users/edit', to: 'users#edit', as: :edit_user
+
+  patch 'users/:id', to: 'users#update'
+
+  get 'matches/availabilities', to: 'matches#availabilities', as: :matches_availabilities
+  get 'matches/seekings', to: 'matches#seekings', as: :matches_seekings
 
   get 'matches/:id', to: 'matches#show', as: :match
 
