@@ -12,9 +12,10 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    shift = current_user.shifts.create! slot_type: shift_params[:slot_type],
-                                        start_date: shift_params[:start_date],
-                                        end_date: shift_params[:end_date]
+    begin
+      shift = current_user.shifts.create! slot_type: shift_params[:slot_type],
+                                          start_date: shift_params[:start_date],
+                                          end_date: shift_params[:end_date]
     rescue StandardError => e
       flash[:error] = e.message
     ensure

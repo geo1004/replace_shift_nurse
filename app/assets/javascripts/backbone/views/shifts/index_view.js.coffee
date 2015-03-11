@@ -8,7 +8,8 @@ class Infirmiere.Views.Shifts.IndexView extends Backbone.View
     if @options.elements.length > 0
       $(@el).fullCalendar(
         'addEventSource',
-        formatShiftsJson(@options.elements, '#6AA079')
+        formatShiftsJson(@options.elements, '#6AA079'),
+        editable: false
       )
 
 

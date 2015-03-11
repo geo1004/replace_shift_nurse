@@ -1,0 +1,7 @@
+.navbar-collapse.collapse.navbar-responsive-collapse
+  %ul.nav.navbar-nav
+    %li= link_to t('nav.home'), root_path
+    %li= link_to t('nav.calendar'), seekings_path
+    %li= link_to t('nav.replacements'), matches_seekings_path
+    %li= link_to t('nav.jobs'), matches_availabilities_path
+    = render partial: 'shared/profile_menu'
